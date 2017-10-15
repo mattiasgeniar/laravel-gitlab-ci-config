@@ -15,7 +15,7 @@ variables:
 
 # Speed up builds
 cache:
-  key: $CI_COMMIT_REF_NAME
+  key: $CI_COMMIT_REF_NAME # changed to $CI_COMMIT_REF_NAME in Gitlab 9.x
   paths:
     - vendor
     - node_modules
@@ -26,7 +26,7 @@ test:
   stage: test
   services:
     - mysql:5.7
-  image: edbizarro/gitlab-ci-pipeline-php:7.1-alpine
+  image: edbizarro/gitlab-ci-pipeline-php:7.1
   script:
     - yarn config set cache-folder .yarn
     - yarn install --pure-lockfile
